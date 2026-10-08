@@ -5,7 +5,6 @@
   "name": "Dmitry Babanin",
   "role": "Java developer",
   "intro": "By day I write Java. In my free time I design 3D models, build electronics and make small open source tools like PiPoker. Everything I make is free to use, and your support helps me make more of it.",
-  "languageName": "Русский",
   "projectsTitle": "My projects",
   "projects": [
     {
@@ -52,7 +51,6 @@
     "text": "Send any amount to one of these wallets. Please check the network before sending.",
     "copy": "Copy address",
     "copied": "Copied",
-    "qrAlt": "QR code of the {coin} address",
     "networkWarning": "Send only {coin} on the {network} network. Coins sent on another network are lost."
   },
   "thanks": "Thank you for your support!"

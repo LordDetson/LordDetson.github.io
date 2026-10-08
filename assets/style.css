@@ -44,16 +44,40 @@ header {
   margin-bottom: 32px;
 }
 
-.language {
+html[data-lang="en"] [lang="ru"],
+html[data-lang="ru"] [lang="en"] {
+  display: none !important;
+}
+
+.lang-switcher {
   position: absolute;
   top: 0;
   right: 0;
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.lang-switch {
+  padding: 4px 10px;
+  border: 0;
+  background: transparent;
   color: var(--muted);
-  font-size: 15px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lang-switch[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--accent-text);
 }
 
 h1 {
   margin: 0;
+  padding-right: 96px;
   font-size: 34px;
   line-height: 1.2;
 }
@@ -99,7 +123,7 @@ a {
   margin-bottom: 6px;
 }
 
-.projects span {
+.projects .description {
   display: block;
   color: var(--muted);
   font-size: 15px;
@@ -179,6 +203,15 @@ a {
   font: inherit;
   font-size: 15px;
   cursor: pointer;
+}
+
+.copy .done,
+.copy.copied .label {
+  display: none;
+}
+
+.copy.copied .done {
+  display: inline;
 }
 
 .warning {

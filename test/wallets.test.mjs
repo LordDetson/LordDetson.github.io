@@ -55,23 +55,22 @@ function wallets(html) {
 
 test('every wallet shows its address and a QR code of exactly that address', async () => {
   const site = await buildSite(SAMPLE_WALLETS);
-  for (const html of [site.en, site.ru]) {
-    const shown = wallets(html);
-    assert.deepEqual(shown.map((w) => w.id), SAMPLE_WALLETS.map((w) => w.id));
-    for (const wallet of shown) {
-      const expected = SAMPLE_WALLETS.find((w) => w.id === wallet.id).address;
-      assert.equal(wallet.address, expected);
-      const png = PNG.sync.read(await readFile(join(site.outDir, wallet.qr)));
-      const decoded = jsQR(new Uint8ClampedArray(png.data), png.width, png.height);
-      assert.equal(decoded?.data, expected, `QR of ${wallet.id}`);
-    }
+  const shown = wallets(site.html);
+  assert.deepEqual(shown.map((w) => w.id), SAMPLE_WALLETS.map((w) => w.id));
+  for (const wallet of shown) {
+    const expected = SAMPLE_WALLETS.find((w) => w.id === wallet.id).address;
+    assert.equal(wallet.address, expected);
+    const png = PNG.sync.read(await readFile(join(site.outDir, wallet.qr)));
+    const decoded = jsQR(new Uint8ClampedArray(png.data), png.width, png.height);
+    assert.equal(decoded?.data, expected, `QR of ${wallet.id}`);
   }
 });
 
-test('every wallet warns which network to use', async () => {
+test('every wallet warns which network to use, in both languages', async () => {
   const site = await buildSite(SAMPLE_WALLETS);
   for (const wallet of SAMPLE_WALLETS) {
-    assert.match(site.en, new RegExp(`Send only ${wallet.coin} on the ${wallet.network.replace(/[()]/g, '\\$&')} network`));
-    assert.match(site.ru, new RegExp(`Отправляйте только ${wallet.coin} в сети ${wallet.network.replace(/[()]/g, '\\$&')}`));
+    const network = wallet.network.replace(/[()]/g, '\\$&');
+    assert.match(site.html, new RegExp(`Send only ${wallet.coin} on the ${network} network`));
+    assert.match(site.html, new RegExp(`Отправляйте только ${wallet.coin} в сети ${network}`));
   }
 });

@@ -1,4 +1,4 @@
-import { mkdtemp, readFile } from 'node:fs/promises';
+import { access, mkdtemp, readFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -34,9 +34,15 @@ export async function loadContent() {
   return { en: await read('en'), ru: await read('ru') };
 }
 
+export async function exists(path) {
+  return access(path).then(
+    () => true,
+    () => false,
+  );
+}
+
 export async function buildSite(wallets) {
   const outDir = await mkdtemp(join(tmpdir(), 'support-page-'));
   await build({ content: await loadContent(), wallets, outDir });
-  const page = (path) => readFile(join(outDir, path), 'utf8');
-  return { outDir, en: await page('index.html'), ru: await page('ru/index.html') };
+  return { outDir, html: await readFile(join(outDir, 'index.html'), 'utf8') };
 }
