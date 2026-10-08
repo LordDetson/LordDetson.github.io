@@ -285,3 +285,11 @@ test('every copy button names the coin it copies and has a status line for scree
     assert.match(body, /<span class="sr-only" role="status"><\/span>/, wallet.id);
   }
 });
+
+test('the PiPoker card links its source code', async () => {
+  const { en } = await loadContent();
+  const site = await buildSite([]);
+  const card = site.html.match(/<article class="card feature" id="pipoker">[\s\S]*?<\/article>/)[0];
+  const repos = card.match(/<p class="repos">[\s\S]*?<\/p>/)?.[0] ?? '';
+  for (const repo of en.pipoker.repos) assert.ok(repos.includes(`href="${repo.url}"`), repo.url);
+});

@@ -168,6 +168,7 @@ function renderPipoker({ en, ru }, v) {
           ${both('p', p.description, r.description, ' class="pitch"')}
           <ul class="checks">${features}</ul>
           <a class="btn btn-blue" href="${escape(p.url)}">${spans(p.cta, r.cta)}${ICONS.arrowOut}</a>
+          <p class="repos">${ICONS.github}${spans(p.sourceLabel, r.sourceLabel)} ${p.repos.map((repo, i) => `<a href="${escape(repo.url)}">${spans(repo.name, r.repos[i].name)}</a>`).join(' · ')}</p>
         </div>
         <div class="feature-media" aria-hidden="true">
           <div class="browser">

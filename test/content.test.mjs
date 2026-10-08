@@ -88,3 +88,15 @@ test('short prefixes and numbers stay with their word at the end of a line', asy
   const breakable = [...strings(en), ...strings(ru)].filter((s) => /\b3D-|\bone-time|[a-zа-я] 18650/i.test(s));
   assert.deepEqual(breakable, []);
 });
+
+test('PiPoker lists its three repositories on GitHub', async () => {
+  const { en, ru } = await loadContent();
+  const urls = [
+    'https://github.com/LordDetson/pipoker-app',
+    'https://github.com/LordDetson/pipoker-web',
+    'https://github.com/LordDetson/pipoker-docker-config',
+  ];
+  assert.deepEqual(en.pipoker.repos.map((r) => r.url), urls);
+  assert.deepEqual(ru.pipoker.repos.map((r) => r.url), urls);
+  assert.deepEqual(en.pipoker.repos.map((r) => r.name), ['Backend', 'Frontend', 'Docker']);
+});

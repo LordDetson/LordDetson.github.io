@@ -27,7 +27,13 @@
     "tags": ["Web app", "Open source"],
     "features": ["No sign-up", "Works in the browser on a computer and a phone", "Ready-made and custom decks"],
     "cta": "Open pipoker.app",
-    "url": "https://pipoker.app"
+    "url": "https://pipoker.app",
+    "sourceLabel": "Source code:",
+    "repos": [
+      { "name": "Backend", "url": "https://github.com/LordDetson/pipoker-app" },
+      { "name": "Frontend", "url": "https://github.com/LordDetson/pipoker-web" },
+      { "name": "Docker", "url": "https://github.com/LordDetson/pipoker-docker-config" }
+    ]
   },
   "printables": {
     "name": "3D models on Printables",
