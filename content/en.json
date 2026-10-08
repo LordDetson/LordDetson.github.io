@@ -2,23 +2,73 @@
   "lang": "en",
   "title": "Support Dmitry Babanin",
   "description": "Support the open projects of Dmitry Babanin: PiPoker, free 3D models and electronics.",
+  "skip": "Skip to content",
+  "nav": {
+    "label": "Sections",
+    "projects": "Projects",
+    "goals": "Goals",
+    "support": "Support"
+  },
   "name": "Dmitry Babanin",
   "role": "Java developer",
-  "intro": "By day I write Java. In my free time I design 3D models, build electronics and make small open source tools like PiPoker. Everything I make is free to use, and your support helps me make more of it.",
+  "crafts": ["Open source", "3D models", "Electronics"],
+  "intro": "By day I write Java. In my free time I design 3D models, build electronics and make small open source tools like PiPoker.",
+  "introKey": "Everything I make is free to use, and your support helps me make more of it.",
+  "supportButton": "Support me",
+  "workButton": "See my work",
+  "payNote": {
+    "boosty": "Bank card via Boosty",
+    "crypto": "or crypto"
+  },
   "projectsTitle": "My projects",
-  "projects": [
+  "pipoker": {
+    "name": "PiPoker",
+    "description": "Free Planning Poker for teams, open source.",
+    "tags": ["Web app", "Open source"],
+    "features": ["No sign-up", "Works in the browser on a computer and a phone", "Ready-made and custom decks"],
+    "cta": "Open pipoker.app",
+    "url": "https://pipoker.app"
+  },
+  "printables": {
+    "name": "3D models on Printables",
+    "description": "Free models: cases, holders, glowing earrings and more.",
+    "hint": "Every picture opens its model page.",
+    "cta": "Open on Printables",
+    "url": "https://www.printables.com/@detson_2927046"
+  },
+  "models": [
     {
-      "id": "pipoker",
-      "name": "PiPoker",
-      "description": "Free Planning Poker for teams, open source.",
-      "url": "https://pipoker.app"
+      "id": "crystal-earrings",
+      "title": "Glowing Crystal earrings",
+      "caption": "Lit by a CR2032 coin cell",
+      "url": "https://www.printables.com/model/1859186-glowing-crystal-earrings-with-cr2032-magnetic-case"
     },
     {
-      "id": "printables",
-      "name": "3D models on Printables",
-      "description": "Free models: cases, holders, glowing earrings and more.",
+      "id": "bubbles",
+      "title": "Bubbles",
+      "caption": "Earrings, keychain or pendant",
+      "url": "https://www.printables.com/model/1859167-bubbles-cute-round-critter-charm-earrings-keychain"
+    },
+    {
+      "id": "hexagon-earrings",
+      "title": "Hexagon earrings",
+      "caption": "Star, snowflake or hexagon top",
+      "url": "https://www.printables.com/model/1859176-glowing-hexagon-earrings-with-cr2032-star-snowflak"
+    },
+    {
+      "id": "power-bank",
+      "title": "Power bank case",
+      "caption": "USB-C 100 W, five 18650 cells",
       "url": "https://www.printables.com/model/1859132-diy-100w-usb-c-power-bank-case-5x-18650-5s1p-myzl"
     },
+    {
+      "id": "led-jar",
+      "title": "Tiny glowing jar",
+      "caption": "Flexible LED filament in an 8 ml jar",
+      "url": "https://www.printables.com/model/1859159-tiny-glowing-jar-flexible-led-filament-in-an-8-ml"
+    }
+  ],
+  "links": [
     {
       "id": "github",
       "name": "GitHub",
@@ -34,24 +84,28 @@
   ],
   "goalsTitle": "What your support pays for",
   "goals": [
-    "A reliable server and a domain for PiPoker",
-    "Filament and parts for new free 3D models",
-    "Electronics for new inventions",
-    "More evenings for open projects"
+    { "title": "A reliable server and a domain for PiPoker", "tag": "PiPoker" },
+    { "title": "Filament and parts for new free 3D models", "tag": "3D models" },
+    { "title": "Electronics for new inventions", "tag": "Electronics" },
+    { "title": "More evenings for open projects", "tag": "All projects" }
   ],
   "supportTitle": "How to support",
   "boosty": {
     "title": "Boosty",
-    "text": "A monthly subscription or a one-time donation by bank card.",
+    "text": "A monthly subscription or a one‑time donation by bank card.",
+    "chips": ["Monthly", "One‑time", "Bank card"],
     "button": "Support on Boosty",
+    "note": "Payment happens on the Boosty website.",
     "url": "https://boosty.to/detson"
   },
   "crypto": {
     "title": "Crypto",
     "text": "Send any amount to one of these wallets. Please check the network before sending.",
+    "checkHint": "After pasting, compare the first and the last four characters of the address.",
     "copy": "Copy address",
     "copied": "Copied",
     "networkWarning": "Send only {coin} on the {network} network. Coins sent on another network are lost."
   },
-  "thanks": "Thank you for your support!"
+  "thanks": "Thank you for your support!",
+  "colophon": "A static page without trackers, cookies or external fonts."
 }

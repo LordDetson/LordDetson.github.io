@@ -47,6 +47,14 @@ export function langScript() {
     document.querySelectorAll('[data-set-lang]').forEach((button) => {
       button.addEventListener('click', () => {
         apply(button.dataset.setLang);
+        // ?lang= wins over the saved choice, so keep it in step with the switch
+        if (/[?&]lang=/.test(location.search)) {
+          try {
+            history.replaceState(null, '', location.pathname + '?lang=' + button.dataset.setLang + location.hash);
+          } catch (e) {
+            // the address just stays as it was
+          }
+        }
         try {
           localStorage.setItem('lang', button.dataset.setLang);
         } catch (e) {

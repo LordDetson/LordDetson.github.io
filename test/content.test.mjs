@@ -39,24 +39,52 @@ test('the page names the author without a country', async () => {
   assert.equal(en.name, 'Dmitry Babanin');
   assert.equal(ru.name, 'Дмитрий Бабанин');
   for (const text of [...strings(en), ...strings(ru)]) {
-    assert.doesNotMatch(text, /Belarus|Беларус/i);
+    assert.doesNotMatch(text, /Belarus|Беларус|Белорус|Minsk|Минск/i);
   }
 });
 
-test('the projects are PiPoker, Printables, GitHub and Boosty, all over https', async () => {
-  const { en } = await loadContent();
-  assert.deepEqual(en.projects.map((p) => p.id), ['pipoker', 'printables', 'github', 'boosty']);
-  for (const project of en.projects) assert.match(project.url, /^https:\/\//);
-});
-
-test('there are four goals for the money', async () => {
+test('PiPoker points to pipoker.app and lists three facts', async () => {
   const { en, ru } = await loadContent();
-  assert.equal(en.goals.length, 4);
-  assert.equal(ru.goals.length, 4);
+  assert.equal(en.pipoker.url, 'https://pipoker.app');
+  assert.equal(ru.pipoker.url, 'https://pipoker.app');
+  assert.equal(en.pipoker.features.length, 3);
 });
 
-test('Boosty points to the author page', async () => {
+test('the showcase has five models, each with its own Printables page', async () => {
+  const { en, ru } = await loadContent();
+  assert.equal(en.models.length, 5);
+  assert.deepEqual(ru.models.map((m) => m.id), en.models.map((m) => m.id));
+  assert.equal(new Set(en.models.map((m) => m.id)).size, 5);
+  for (const [i, model] of en.models.entries()) {
+    assert.match(model.url, /^https:\/\/www\.printables\.com\/model\/\d+-/, model.id);
+    assert.equal(ru.models[i].url, model.url, model.id);
+  }
+});
+
+test('GitHub and Boosty news are the link cards', async () => {
+  const { en } = await loadContent();
+  assert.deepEqual(en.links.map((l) => l.id), ['github', 'boosty']);
+  assert.deepEqual(en.links.map((l) => l.url), ['https://github.com/LordDetson', 'https://boosty.to/detson']);
+});
+
+test('there are four goals, each with a title and a tag', async () => {
+  const { en, ru } = await loadContent();
+  for (const content of [en, ru]) {
+    assert.equal(content.goals.length, 4);
+    for (const goal of content.goals) assert.deepEqual(Object.keys(goal).sort(), ['tag', 'title']);
+  }
+});
+
+test('Boosty points to the author page and names three ways to pay', async () => {
   const { en, ru } = await loadContent();
   assert.equal(en.boosty.url, 'https://boosty.to/detson');
   assert.equal(ru.boosty.url, 'https://boosty.to/detson');
+  assert.equal(en.boosty.chips.length, 3);
+});
+
+test('short prefixes and numbers stay with their word at the end of a line', async () => {
+  const { en, ru } = await loadContent();
+  // "3D-" and "one-" must not hang alone, and "18650" must not drop to a line of its own
+  const breakable = [...strings(en), ...strings(ru)].filter((s) => /\b3D-|\bone-time|[a-zа-я] 18650/i.test(s));
+  assert.deepEqual(breakable, []);
 });

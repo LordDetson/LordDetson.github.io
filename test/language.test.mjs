@@ -40,6 +40,7 @@ test('unknown values are ignored', () => {
 
 // Runs the built lang.js against a minimal fake browser.
 async function runLangScript({ languages, saved = null, search = '' }) {
+  const replaced = [];
   const site = await buildSite([]);
   const code = await readFile(join(site.outDir, 'lang.js'), 'utf8');
   const root = { dataset: { lang: 'en', titleEn: 'Support', titleRu: 'Поддержать' }, lang: 'en' };
@@ -65,12 +66,13 @@ async function runLangScript({ languages, saved = null, search = '' }) {
   const context = {
     document,
     navigator: { languages },
-    location: { search },
+    location: { search, pathname: '/', hash: '' },
+    history: { replaceState: (state, title, url) => replaced.push(String(url)) },
     localStorage: { getItem: (k) => store.get(k) ?? null, setItem: (k, v) => store.set(k, v) },
   };
   vm.runInNewContext(code, context);
   listeners.DOMContentLoaded?.();
-  return { root, document, store, buttons };
+  return { root, document, store, buttons, replaced };
 }
 
 test('the built script switches a Russian browser to Russian before the page is drawn', async () => {
@@ -88,4 +90,17 @@ test('the switch changes the language and remembers it', async () => {
   assert.equal(page.store.get('lang'), 'en');
   assert.equal(page.buttons.find((b) => b.dataset.setLang === 'en').attributes['aria-pressed'], 'true');
   assert.equal(page.buttons.find((b) => b.dataset.setLang === 'ru').attributes['aria-pressed'], 'false');
+});
+
+test('switching the language rewrites ?lang= in the address, so a reload or a shared link keeps it', async () => {
+  const page = await runLangScript({ languages: ['en'], search: '?lang=ru' });
+  assert.equal(page.root.dataset.lang, 'ru');
+  page.buttons.find((b) => b.dataset.setLang === 'en').click();
+  assert.deepEqual(page.replaced, ['/?lang=en']);
+});
+
+test('without ?lang= in the address the switch leaves the address alone', async () => {
+  const page = await runLangScript({ languages: ['en'] });
+  page.buttons.find((b) => b.dataset.setLang === 'ru').click();
+  assert.deepEqual(page.replaced, []);
 });

@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "id": "usdt-trc20",
+    "coin": "USDT",
+    "network": "TRC-20",
+    "chain": "tron",
+    "address": "TKTVhNKMqzXz7R85qkKsyTkKPCNwckFTia"
+  },
+  {
+    "id": "ton",
+    "coin": "TON",
+    "network": "TON",
+    "chain": "ton",
+    "address": "UQABqJc6VxqmWU2Yi1FQ4O440tkgaGlSc0_GC84SE8A7RuSX"
+  },
+  {
+    "id": "btc",
+    "coin": "BTC",
+    "network": "Bitcoin",
+    "chain": "bitcoin",
+    "address": "bc1qnd5xm4up3cv6vwcrvz8e2r0ed3vuntll60z29v"
+  }
+]
