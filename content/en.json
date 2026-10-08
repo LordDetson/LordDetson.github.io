@@ -1,0 +1,59 @@
+{
+  "lang": "en",
+  "title": "Support Dmitry Babanin",
+  "description": "Support the open projects of Dmitry Babanin: PiPoker, free 3D models and electronics.",
+  "name": "Dmitry Babanin",
+  "role": "Java developer",
+  "intro": "By day I write Java. In my free time I design 3D models, build electronics and make small open source tools like PiPoker. Everything I make is free to use, and your support helps me make more of it.",
+  "languageName": "Русский",
+  "projectsTitle": "My projects",
+  "projects": [
+    {
+      "id": "pipoker",
+      "name": "PiPoker",
+      "description": "Free Planning Poker for teams, open source.",
+      "url": "https://pipoker.duckdns.org"
+    },
+    {
+      "id": "printables",
+      "name": "3D models on Printables",
+      "description": "Free models: cases, holders, glowing earrings and more.",
+      "url": "https://www.printables.com/model/1859132-diy-100w-usb-c-power-bank-case-5x-18650-5s1p-myzl"
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "description": "Source code of my projects.",
+      "url": "https://github.com/LordDetson"
+    },
+    {
+      "id": "boosty",
+      "name": "Boosty",
+      "description": "News about my projects, models and inventions.",
+      "url": "https://boosty.to/detson"
+    }
+  ],
+  "goalsTitle": "What your support pays for",
+  "goals": [
+    "A reliable server and a domain for PiPoker",
+    "Filament and parts for new free 3D models",
+    "Electronics for new inventions",
+    "More evenings for open projects"
+  ],
+  "supportTitle": "How to support",
+  "boosty": {
+    "title": "Boosty",
+    "text": "A monthly subscription or a one-time donation by bank card.",
+    "button": "Support on Boosty",
+    "url": "https://boosty.to/detson"
+  },
+  "crypto": {
+    "title": "Crypto",
+    "text": "Send any amount to one of these wallets. Please check the network before sending.",
+    "copy": "Copy address",
+    "copied": "Copied",
+    "qrAlt": "QR code of the {coin} address",
+    "networkWarning": "Send only {coin} on the {network} network. Coins sent on another network are lost."
+  },
+  "thanks": "Thank you for your support!"
+}

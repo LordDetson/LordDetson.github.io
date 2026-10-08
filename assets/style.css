@@ -1,0 +1,193 @@
+:root {
+  --bg: #f6f6f4;
+  --surface: #ffffff;
+  --text: #1d1f22;
+  --muted: #5f6368;
+  --border: #e2e2de;
+  --accent: #f15f2c;
+  --accent-text: #ffffff;
+  --warning: #8a4b00;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1d21;
+    --surface: #24272c;
+    --text: #e9e9e7;
+    --muted: #a3a6ab;
+    --border: #363a40;
+    --warning: #f0b45c;
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 16px 56px;
+}
+
+header {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.language {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.2;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 22px;
+}
+
+h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+}
+
+h4 {
+  margin: 0 0 12px;
+  font-size: 17px;
+}
+
+.role {
+  margin: 4px 0 16px;
+  color: var(--muted);
+}
+
+a {
+  color: inherit;
+}
+
+#projects,
+#goals,
+#support {
+  margin-bottom: 32px;
+}
+
+.projects,
+.goals {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.projects li,
+.goals li {
+  margin-bottom: 6px;
+}
+
+.projects span {
+  display: block;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+#boosty,
+#crypto {
+  margin-top: 16px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+#boosty p,
+#crypto > p {
+  margin: 0 0 16px;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button:hover {
+  filter: brightness(1.08);
+}
+
+.wallets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+}
+
+.wallet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.network {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.qr {
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  background: #ffffff;
+  image-rendering: pixelated;
+}
+
+.address {
+  margin: 12px 0;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+
+.copy {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.warning {
+  margin: 12px 0 0;
+  color: var(--warning);
+  font-size: 14px;
+}
+
+footer {
+  color: var(--muted);
+  text-align: center;
+}

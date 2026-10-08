@@ -1,0 +1,19 @@
+{
+  "name": "lorddetson.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal support page of Dmitry Babanin",
+  "type": "module",
+  "scripts": {
+    "build": "node src/build.mjs",
+    "test": "node --test \"test/*.test.mjs\""
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "bech32": "^2.0.0",
+    "bs58check": "^4.0.0",
+    "jsqr": "^1.4.0",
+    "pngjs": "^7.0.0",
+    "qrcode": "^1.5.4"
+  }
+}
