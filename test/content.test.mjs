@@ -43,10 +43,10 @@ test('the page names the author without a country', async () => {
   }
 });
 
-test('PiPoker points to pipoker.app and lists three facts', async () => {
+test('PiPoker points to pipoker.app with the support source and lists three facts', async () => {
   const { en, ru } = await loadContent();
-  assert.equal(en.pipoker.url, 'https://pipoker.app');
-  assert.equal(ru.pipoker.url, 'https://pipoker.app');
+  assert.equal(en.pipoker.url, 'https://pipoker.app/?from=support');
+  assert.equal(ru.pipoker.url, 'https://pipoker.app/?from=support');
   assert.equal(en.pipoker.features.length, 3);
 });
 

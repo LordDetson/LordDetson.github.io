@@ -27,7 +27,7 @@
     "tags": ["Веб-приложение", "Открытый код"],
     "features": ["Без регистрации", "Работает в браузере на компьютере и телефоне", "Готовые и свои колоды"],
     "cta": "Открыть pipoker.app",
-    "url": "https://pipoker.app",
+    "url": "https://pipoker.app/?from=support",
     "sourceLabel": "Исходный код:",
     "repos": [
       { "name": "Backend", "url": "https://github.com/LordDetson/pipoker-app" },

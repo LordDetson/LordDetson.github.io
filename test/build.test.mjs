@@ -157,7 +157,7 @@ test('the short key phrase of the intro is in bold', async () => {
 test('the PiPoker card shows the demo video and opens pipoker.app', async () => {
   const site = await buildSite([]);
   const card = site.html.match(/<article class="card feature" id="pipoker">[\s\S]*?<\/article>/)[0];
-  assert.match(card, /href="https:\/\/pipoker\.app"/);
+  assert.match(card, /href="https:\/\/pipoker\.app\/\?from=support"/);
   assert.match(card, /<video [^>]*poster="\/media\/pipoker\.webp\?v=[0-9a-f]{8}"/);
   assert.match(card, /<source src="\/media\/pipoker\.mp4\?v=[0-9a-f]{8}" type="video\/mp4">/);
 });
